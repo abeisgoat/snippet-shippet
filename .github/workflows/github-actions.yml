@@ -33,10 +33,11 @@ jobs:
           while IFS= read -r slug; do
             echo "Processing slug: $slug"
           
-            git branch "$slug" || git checkout --track "origin/$slug" 
+            git branch "$slug" || git checkout -b "origin/$slug" 
+            git fetch
             echo "ls /tmp/working/$slug"
             ls "/tmp/working/$slug"
-            cp -R "/tmp/working/$slug/*" .
+            cp -r "/tmp/working/$slug/*" .
           
             git add .
             git commit -a -m "Sync latest $slug"
