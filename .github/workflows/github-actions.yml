@@ -33,7 +33,7 @@ jobs:
           while IFS= read -r slug; do
             echo "Processing slug: $slug"
           
-            git branch "$slug" || git checkout -b "$slug" 
+            git branch "$slug" || git checkout --track "origin/$slug" 
             echo "ls /tmp/working/$slug"
             ls "/tmp/working/$slug"
             cp -R "/tmp/working/$slug/*" .
