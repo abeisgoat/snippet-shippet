@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: List folders
         id: list_folders
@@ -20,7 +20,7 @@ jobs:
       - name: Process each slug
         run: |
           while IFS= read -r slug; do
-            echo "Processing slug: slug"
+            echo "Processing slug: $slug"
             # Replace the following line with your custom script or command
             # Example: cd "$folder" && npm install && npm test
           done < slugs.txt
