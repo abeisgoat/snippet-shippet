@@ -28,7 +28,7 @@ jobs:
           
             git branch "$slug" || git checkout -b "$slug" 
             echo "ls -la .temp"
-            ls "./.temp"
+            ls -la "./.temp"
             echo "ls .temp/$slug"
             ls "./.temp/$slug/*"
             cp -R ".temp/$slug/" .
