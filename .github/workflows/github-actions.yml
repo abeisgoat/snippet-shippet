@@ -35,6 +35,7 @@ jobs:
             rm -rf /tmp/repo
             mkdir /tmp/repo
             cd /tmp/repo
+            cp $GITHUB_WORKSPACE/.git .
           
             git branch "$slug" || git checkout -b "origin/$slug" 
             git fetch
