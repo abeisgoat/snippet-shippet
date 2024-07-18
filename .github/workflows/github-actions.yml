@@ -38,6 +38,7 @@ jobs:
             cp -r $GITHUB_WORKSPACE/.git .
           
             git branch "$slug" || git checkout -b "origin/$slug" 
+            git pull
             git fetch
             echo "ls /tmp/working/$slug"
             ls "/tmp/working/$slug"
