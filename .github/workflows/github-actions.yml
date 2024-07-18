@@ -31,6 +31,7 @@ jobs:
           git config --global user.name "Abe's Bot"
   
           while IFS= read -r slug; do
+            cd
             echo "Processing slug: $slug"
             rm -rf /tmp/repo
             mkdir /tmp/repo
@@ -38,13 +39,14 @@ jobs:
             cp -r $GITHUB_WORKSPACE/.git .
           
             git branch "$slug" || git checkout -b "origin/$slug" 
-            git fetch
+
+            rm -rf *
             echo "ls /tmp/working/$slug"
             ls "/tmp/working/$slug"
             cp /tmp/working/$slug/* .
           
             git add .
             git commit -a -m "Sync latest $slug"
-            git push origin "$slug"
+            git push --force origin "$slug"
             
           done < /tmp/slugs.txt
