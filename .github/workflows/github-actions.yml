@@ -33,6 +33,7 @@ jobs:
           while IFS= read -r slug; do
             cd $GITHUB_WORKSPACE
             git pull
+            git fetch
           
             echo "Processing slug: $slug"
             rm -rf /tmp/repo
@@ -40,7 +41,8 @@ jobs:
             cd /tmp/repo
             cp -r $GITHUB_WORKSPACE/.git .
           
-            git branch "$slug" || git checkout -b "origin/$slug" 
+            git checkout "$slug" || git branch "$slug"
+            git fetch
 
             rm -rf *
             echo "ls /tmp/working/$slug"
