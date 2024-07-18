@@ -45,6 +45,6 @@ jobs:
           
             git add .
             git commit -a -m "Sync latest $slug"
-            git push --force origin "$slug"
+            git push origin "$slug"
             
           done < /tmp/slugs.txt
