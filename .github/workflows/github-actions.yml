@@ -27,8 +27,8 @@ jobs:
             echo "Processing slug: $slug"
           
             git branch "$slug" || git checkout -b "$slug" 
-            ls .temp
-            cp -R ".temp/$slug/*" .
+            ls ".temp/$slug/*"
+            cp -R ".temp/$slug/" .
           
             git commit -a "Sync latest $slug"
             git push origin "$slug"
