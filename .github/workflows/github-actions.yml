@@ -45,8 +45,11 @@ jobs:
             ls "/tmp/working/$slug"
             cp /tmp/working/$slug/* .
           
+            echo "Files before push"
+            ls .
             git add .
             git commit -a -m "Sync latest $slug"
-            git push --force origin "$slug"
-            
           done < /tmp/slugs.txt
+      - name: Push
+        id: git_push
+        run: git push
