@@ -21,7 +21,7 @@ jobs:
         run: |
           shopt -s extglob
           mkdir .temp
-          mv !(.temp) .temp
+          mv !(.temp)/** .temp
 
           while IFS= read -r slug; do
             echo "Processing slug: $slug"
