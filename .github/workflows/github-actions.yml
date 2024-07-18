@@ -52,6 +52,6 @@ jobs:
             echo "Files before push"
             ls .
             git add .
-            git commit -a -m "Sync latest $slug"
-            git push origin "$slug"
+            git commit -a -m "Sync latest $slug" || true
+            git push origin "$slug" || true
           done < /tmp/slugs.txt
