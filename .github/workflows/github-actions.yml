@@ -14,8 +14,8 @@ jobs:
       - name: List folders
         id: list_folders
         run: |
-          ls -d */ | sed 's#/##' > slugs.txt
-          cat slugs.txt
+          ls -d */ | sed 's#/##' > /tmp/slugs.txt
+          cat /tmp/slugs.txt
 
       - name: Process each slug
         run: |
@@ -23,19 +23,17 @@ jobs:
           mkdir /tmp/working
           mv ** /tmp/working
 
-          ls -la "/tmp/working"
+          ls -la "/tmp/working/*"
           
           while IFS= read -r slug; do
             echo "Processing slug: $slug"
           
             git branch "$slug" || git checkout -b "$slug" 
-            echo "ls -la .temp/*"
-            ls -la "./.temp/*"
-            echo "ls .temp/$slug"
-            ls "./.temp/$slug/*"
-            cp -R ".temp/$slug/" .
+            echo "ls /tmp/working/$slug"
+            ls "/tmp/working/$slug/*"
+            cp -R "/tmp/working/$slug/" .
           
             git commit -a "Sync latest $slug"
             git push origin "$slug"
             
-          done < .temp/slugs.txt
+          done < /tmp/slugs.txt
