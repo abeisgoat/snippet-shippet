@@ -19,8 +19,16 @@ jobs:
 
       - name: Process each slug
         run: |
+          mkdir .temp
+          mv !(.temp) .temp
+          
           while IFS= read -r slug; do
             echo "Processing slug: $slug"
-            # Replace the following line with your custom script or command
-            # Example: cd "$folder" && npm install && npm test
+          
+            git branch "$slug" || git checkout "$slug" 
+            mv ".temp/$slug/**" .
+          
+            git commit -a "Sync latest $slug"
+            git push origin "$slug"
+            
           done < slugs.txt
