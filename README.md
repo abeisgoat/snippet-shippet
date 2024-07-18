@@ -6,5 +6,5 @@
 
 To clone with git:
 ```
-git clone -b hello-world-node git@github.com:abeisgoat/snippet-shippet.git
+git clone -b hello-world-node https://github.com/abeisgoat/snippet-shippet.git
 ```
