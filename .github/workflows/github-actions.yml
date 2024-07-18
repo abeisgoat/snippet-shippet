@@ -26,9 +26,9 @@ jobs:
           while IFS= read -r slug; do
             echo "Processing slug: $slug"
           
-            mv ".temp/$slug/**" .
             git branch "$slug" || git checkout -b "$slug" 
             ls .temp
+            mv ".temp/$slug/**" .
           
             git commit -a "Sync latest $slug"
             git push origin "$slug"
