@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.API_TOKEN }}
 
       - name: List folders
         id: list_folders
@@ -36,6 +38,7 @@ jobs:
             ls "/tmp/working/$slug"
             cp -R "/tmp/working/$slug/" .
           
+            git add .
             git commit -a -m "Sync latest $slug"
             git push origin "$slug"
             
