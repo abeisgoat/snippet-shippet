@@ -23,14 +23,14 @@ jobs:
           mkdir /tmp/working
           mv ** /tmp/working
 
-          ls -la "/tmp/working/*"
+          ls -la "/tmp/working/hello-world-node"
           
           while IFS= read -r slug; do
             echo "Processing slug: $slug"
           
             git branch "$slug" || git checkout -b "$slug" 
             echo "ls /tmp/working/$slug"
-            ls "/tmp/working/$slug/*"
+            ls "/tmp/working/$slug"
             cp -R "/tmp/working/$slug/" .
           
             git commit -a "Sync latest $slug"
