@@ -32,8 +32,9 @@ jobs:
             echo "ls /tmp/working/$slug"
             ls "/tmp/working/$slug"
             cp -R "/tmp/working/$slug/" .
+            cp -R /tmp/working/.git* .
           
-            git commit -a "Sync latest $slug"
+            git commit -a -m "Sync latest $slug"
             git push origin "$slug"
             
           done < /tmp/slugs.txt
