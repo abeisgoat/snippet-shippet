@@ -3,9 +3,9 @@ run-name: Commit each folder to a dedicated branch
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
-  Explore-GitHub-Actions:
+  folder-to-branches:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
