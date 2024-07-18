@@ -25,6 +25,9 @@ jobs:
 
           ls -la "/tmp/working/hello-world-node"
           
+          git config --global user.email "abeisgreat@abeisgreat.com"
+          git config --global user.name "Abe's Bot"
+  
           while IFS= read -r slug; do
             echo "Processing slug: $slug"
           
