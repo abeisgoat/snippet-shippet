@@ -8,7 +8,7 @@
 
 To clone with git:
 ```
-git clone -b hello-world-python git@github.com:abeisgoat/snippet-shippet.git
+git clone -b hello-world-python https://github.com/abeisgoat/snippet-shippet.git
 ```
 
 ## hello-world-node
@@ -19,5 +19,5 @@ git clone -b hello-world-python git@github.com:abeisgoat/snippet-shippet.git
 
 To clone with git:
 ```
-git clone -b hello-world-node git@github.com:abeisgoat/snippet-shippet.git
+git clone -b hello-world-node https://github.com/abeisgoat/snippet-shippet.git
 ```
