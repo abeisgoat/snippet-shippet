@@ -19,6 +19,7 @@ jobs:
 
       - name: Process each slug
         run: |
+          shopt -s extglob
           mkdir .temp
           mv !(.temp) .temp
           
