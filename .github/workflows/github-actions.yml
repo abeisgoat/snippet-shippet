@@ -22,7 +22,7 @@ jobs:
           shopt -s extglob
           mkdir .temp
           mv !(.temp) .temp
-          
+          ls .temp
           while IFS= read -r slug; do
             echo "Processing slug: $slug"
           
