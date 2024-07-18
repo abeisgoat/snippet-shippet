@@ -31,7 +31,9 @@ jobs:
           git config --global user.name "Abe's Bot"
   
           while IFS= read -r slug; do
-            cd
+            cd $GITHUB_WORKSPACE
+            git pull
+          
             echo "Processing slug: $slug"
             rm -rf /tmp/repo
             mkdir /tmp/repo
@@ -49,7 +51,5 @@ jobs:
             ls .
             git add .
             git commit -a -m "Sync latest $slug"
+            git push origin "$slug"
           done < /tmp/slugs.txt
-      - name: Push
-        id: git_push
-        run: git push
