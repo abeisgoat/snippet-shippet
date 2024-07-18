@@ -32,4 +32,4 @@ jobs:
             git commit -a "Sync latest $slug"
             git push origin "$slug"
             
-          done < slugs.txt
+          done < .temp/slugs.txt
