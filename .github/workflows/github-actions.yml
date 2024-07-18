@@ -21,11 +21,10 @@ jobs:
         run: |
           shopt -s extglob
           mkdir .temp
-          mv !(.temp)/** .temp
-          mv !(.temp) .temp
+          mv !(.temp)/{,.}* .temp
 
           echo "before branch - ls -la .temp/*"
-          ls -la "./.temp/*"
+          ls -la ".temp/*"
           
           while IFS= read -r slug; do
             echo "Processing slug: $slug"
