@@ -20,11 +20,10 @@ jobs:
       - name: Process each slug
         run: |
           shopt -s extglob
-          mkdir .temp
-          mv !(.temp)/{,.}* .temp
+          mkdir /tmp/working
+          mv ** /tmp/working
 
-          echo "before branch - ls -la .temp/*"
-          ls -la ".temp/*"
+          ls -la "/tmp/working"
           
           while IFS= read -r slug; do
             echo "Processing slug: $slug"
