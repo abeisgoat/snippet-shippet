@@ -27,7 +27,7 @@ jobs:
             echo "Processing slug: $slug"
           
             git branch "$slug" || git checkout -b "$slug" 
-            echo "ls .temp"
+            echo "ls -la .temp"
             ls "./.temp"
             echo "ls .temp/$slug"
             ls "./.temp/$slug/*"
